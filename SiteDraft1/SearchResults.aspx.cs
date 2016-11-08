@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace SiteDraft1
 {
@@ -43,22 +44,49 @@ namespace SiteDraft1
 
             string searchstring = null;
 
-            searchstring = "SELECT Id from dbo.table WHERE Tags = 'test'";
+            searchstring = "SELECT Id from EHKB WHERE Tags = 'test'";
 
+            List<string> returnList = new List<string>();            
 
             try
             {
                 command = new SqlCommand(searchstring, myConnection);
                 reader = command.ExecuteReader();
 
-                int x = 0;
-
-                while(reader.Read())
+               
+                string output = "";
+                while (reader.Read())
                 {
-                    ReceivedIDs[x] = reader.GetValue(x).ToString();
-                    x++;
+                    returnList.Add(reader.GetInt32(0).ToString());
+                    
+                    
+                
+
                 }
 
+                // DataTable dt = new DataTable();
+
+
+                //   while (reader.Read())
+                //    {
+                // dt.Load(reader);
+
+                //     }
+
+                //     string output = "";
+
+                //     foreach (DataRow rows in dt.Rows)
+                //     {
+                //         output = output + rows.ToString() + "\n";
+                //     }
+
+                foreach(string result in returnList) {
+
+                    output = output + result.ToString() + "\n";
+                    Label1.Text = output;
+                    
+
+                }
                 reader.Close();
                 command.Dispose();
                 myConnection.Close();
@@ -67,7 +95,7 @@ namespace SiteDraft1
             {
 
                 //There was an Error
-                Label1.Text = "Error 1001";
+                Label1.Text = ex.ToString();
             }
 
         }
