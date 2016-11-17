@@ -1,6 +1,15 @@
 ﻿body {
 
+   
 }
+
+
+pre {
+    display: inline-block;
+    margin: 0;
+   
+}
+
 
 header{
 
@@ -9,5 +18,9 @@ header{
 
 footer{
 
+
+}
+
+div {
 
 }

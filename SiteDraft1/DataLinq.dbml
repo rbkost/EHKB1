@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EHKBTest" Class="DataLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ehkbtest.database.windows.net;Initial Catalog=EHKBTest;User ID=Brian" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EHKBTestConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.EHKB" Member="EHKBs">
+    <Type Name="EHKB">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Summary" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LongDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tags" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Body" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DataAdded" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
